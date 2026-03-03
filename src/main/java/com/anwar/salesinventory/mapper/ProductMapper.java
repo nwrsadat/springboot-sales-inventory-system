@@ -8,6 +8,11 @@ import java.util.List;
 
 @Mapper
 public interface ProductMapper {
-    @Select("SELECT * FROM products")
-    List<Product> findAll();
+    @Select("""
+        SELECT * FROM products
+        ORDER BY id
+        OFFSET #{offset} ROWS
+        FETCH NEXT #{size} ROWS ONLY
+    """)
+    List<Product> findAll(int offset, int size);
 }

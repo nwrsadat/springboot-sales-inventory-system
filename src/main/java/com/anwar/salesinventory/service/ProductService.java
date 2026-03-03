@@ -5,5 +5,5 @@ import com.anwar.salesinventory.model.Product;
 import java.util.List;
 
 public interface ProductService {
-    List<Product> findAll();
+    List<Product> findAll(int page, int size);
 }

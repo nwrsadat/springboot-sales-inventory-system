@@ -17,7 +17,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findAll() {
-        return productMapper.findAll();
+    public List<Product> findAll(int page, int size) {
+        int offset = page * size;
+
+        return productMapper.findAll(offset, size);
     }
 }
