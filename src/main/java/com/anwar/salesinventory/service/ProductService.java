@@ -1,9 +1,9 @@
 package com.anwar.salesinventory.service;
 
-import com.anwar.salesinventory.model.Product;
+import com.anwar.salesinventory.dto.ProductPageResponse;
 
 import java.util.List;
 
 public interface ProductService {
-    List<Product> findAll(int page, int size);
+    ProductPageResponse findAll(int page, int size);
 }
