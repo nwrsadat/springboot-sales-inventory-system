@@ -1,5 +1,6 @@
 package com.anwar.salesinventory.controller;
 
+import com.anwar.salesinventory.dto.ProductPageResponse;
 import com.anwar.salesinventory.model.Product;
 import com.anwar.salesinventory.service.ProductService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAllProducts (
+    public ProductPageResponse getAllProducts (
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {

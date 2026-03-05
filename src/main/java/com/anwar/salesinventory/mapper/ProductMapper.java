@@ -15,4 +15,7 @@ public interface ProductMapper {
         FETCH NEXT #{size} ROWS ONLY
     """)
     List<Product> findAll(int offset, int size);
+
+    @Select("SELECT COUNT(*) FROM products")
+    int count();
 }
