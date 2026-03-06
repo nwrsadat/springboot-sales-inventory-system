@@ -10,12 +10,16 @@ import java.util.List;
 public interface ProductMapper {
     @Select("""
         SELECT * FROM products
+        WHERE (#{search} = '' OR LOWER(name) LIKE #{search})
         ORDER BY id
         OFFSET #{offset} ROWS
         FETCH NEXT #{size} ROWS ONLY
     """)
-    List<Product> findAll(int offset, int size);
+    List<Product> findAll(int offset, int size, String search);
 
-    @Select("SELECT COUNT(*) FROM products")
-    int count();
+    @Select("""
+        SELECT COUNT(*) FROM products
+        WHERE (#{search} = '' OR LOWER(name) LIKE #{search})
+    """)
+    int count(String search);
 }
